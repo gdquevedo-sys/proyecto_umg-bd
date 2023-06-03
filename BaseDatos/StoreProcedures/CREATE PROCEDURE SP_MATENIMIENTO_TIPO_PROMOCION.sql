@@ -1,0 +1,24 @@
+DROP PROCEDURE IF EXISTS [dbo].[SP_MATENIMIENTO_TIPO_PROMOCION] 
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE SP_MATENIMIENTO_TIPO_PROMOCION
+	@Opcion				INT,
+	@Id					INT = 0
+AS
+BEGIN
+	IF (@Opcion = 1) --Opci�n para devolver el listado completo
+	BEGIN
+		SELECT * FROM TIPO_PROMOCION;
+	END
+		
+	IF (@Opcion = 2) --Opci�n para seleccionar por ID
+	BEGIN
+		SELECT * FROM TIPO_PROMOCION WHERE [Id] = @Id;
+	END
+END
+GO
